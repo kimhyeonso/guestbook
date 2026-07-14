@@ -103,13 +103,15 @@
 
 .post {
   min-height: 138px;
+  height: auto;
+  flex-shrink: 0;
   position: relative;
-  padding: 20px 50px 18px 120px;
+  padding: 20px 50px 22px 120px;
   background: #fffdf8;
   border: 2px solid #e5d1af;
   border-radius: 14px;
 
-  > div:not(.postHeader):not(.postButtons) {
+  .postAvatar {
     width: 88px;
     height: 100px;
     position: absolute;
@@ -120,7 +122,10 @@
     border: 2px solid #f0b4bc;
     border-radius: 14px;
 
-    img { width: 100%; height: 100%; object-fit: cover; }
+    > div,
+    img { width: 100%; height: 100%; }
+
+    img { object-fit: cover; }
   }
 }
 
@@ -134,7 +139,13 @@
   span { color: #665c54; font-size: 13px; }
 }
 
-.message { white-space: pre-wrap; word-break: break-word; }
+.message {
+  min-height: 24px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 
 .editInput {
   width: 100%;
@@ -143,6 +154,58 @@
   border: 1px solid #d6a04d;
   border-radius: 8px;
   resize: vertical;
+}
+
+.editNickname {
+  width: 100%;
+  height: 34px;
+  padding: 0 8px;
+  color: #4b4038;
+  background: #fffdf8;
+  border: 1px solid #d6a04d;
+  border-radius: 7px;
+  outline: 0;
+}
+
+.editFields {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.editCharacterGrid {
+  max-height: 105px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  padding: 5px;
+  overflow-y: auto;
+  background: #fffaf0;
+  border: 1px solid #d6a04d;
+  border-radius: 8px;
+
+  button {
+    min-width: 0;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #fff;
+    border: 2px solid transparent;
+    border-radius: 7px;
+
+    > div,
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    img { object-fit: cover; }
+  }
+
+  .selectedCharacter {
+    background: #fff0a9;
+    border-color: #c98a38;
+    box-shadow: 0 0 0 2px rgba(201, 138, 56, 0.2);
+  }
 }
 
 .postButtons {
@@ -231,5 +294,5 @@
   .recordsPanel { grid-column: auto; min-height: 500px; padding: 55px 18px 25px; }
   .loginNotice { grid-column: auto; }
   .post { padding-left: 106px; }
-  .post > div:not(.postHeader):not(.postButtons) { width: 76px; height: 90px; }
+  .post .postAvatar { width: 76px; height: 90px; }
 }

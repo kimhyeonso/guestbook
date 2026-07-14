@@ -16,7 +16,7 @@ const CHARACTERS = [
 
 { id: '08', label: '신짱아', src: '/character/character-08.png' },
 
-{ id: '09', label: '부림부리몬', src: '/character/character-09.png' },
+{ id: '09', label: '부리부리몬', src: '/character/character-09.png' },
 
 { id: '10', label: '액션가면', src: '/character/character-10.png' },
 

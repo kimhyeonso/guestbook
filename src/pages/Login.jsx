@@ -5,6 +5,8 @@ import loginImage from '../assets/login.png'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase'
 import guestbook from '../assets/guestbook.png'
+import id from '../assets/id.png'
+
 
 
 // public 폴더에 이미지를 넣고 아래 경로만 바꾸면 됩니다.
@@ -53,7 +55,7 @@ const Login = () => {
 
         <div className={styles.fields}>
           <label className={styles.field}>
-            <img src={guestbook} alt="guestbook" />
+            <img src={id} alt="id" />
             <input
               type="email"
               value={email}

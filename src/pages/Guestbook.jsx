@@ -13,6 +13,7 @@ import {
 } from 'firebase/firestore'
 import GuestbookForm from '../componets/GuestbookForm'
 import CharacterAvatar from '../componets/CharacterAvatar'
+import CHARACTERS from '../componets/characterData'
 import useAuthStore from '../store/authStore'
 import { auth, db } from '../firebase'
 import styles from './Guestbook.module.scss'
@@ -24,6 +25,8 @@ const Guestbook = () => {
   const [loading, setLoading] = useState(true)
   const [editingId, setEditingId] = useState('')
   const [editingMessage, setEditingMessage] = useState('')
+  const [editingNickname, setEditingNickname] = useState('')
+  const [editingCharacter, setEditingCharacter] = useState('')
   const [loadError, setLoadError] = useState('')
 
   useEffect(() => {
@@ -82,22 +85,38 @@ const Guestbook = () => {
   const startEditFunction = (post) => {
     setEditingId(post.id)
     setEditingMessage(post.message)
+    setEditingNickname(post.nickname)
+    setEditingCharacter(post.character)
   }
 
   const updatePostFunction = async (postId) => {
-    if (!editingMessage.trim()) return
+    if (!editingNickname.trim() || !editingMessage.trim() || !editingCharacter) {
+      window.alert('닉네임, 메시지, 캐릭터를 모두 입력해 주세요.')
+      return
+    }
 
     try {
       // 보안 규칙에서 작성자 본인의 글만 수정할 수 있습니다.
       await updateDoc(doc(db, 'guestbookPosts', postId), {
+        nickname: editingNickname.trim(),
         message: editingMessage.trim(),
+        character: editingCharacter,
         updatedAt: serverTimestamp()
       })
       setEditingId('')
       setEditingMessage('')
+      setEditingNickname('')
+      setEditingCharacter('')
     } catch {
       window.alert('글을 수정하지 못했습니다.')
     }
+  }
+
+  const cancelEditFunction = () => {
+    setEditingId('')
+    setEditingMessage('')
+    setEditingNickname('')
+    setEditingCharacter('')
   }
 
   const deletePostFunction = async (postId) => {
@@ -149,29 +168,58 @@ const Guestbook = () => {
               return (
                 <article className={styles.post} key={post.id}>
                   <div className={styles.postHeader}>
-                    <strong>{post.nickname}</strong>
+                    {isEditing ? (
+                      <input
+                        className={styles.editNickname}
+                        type="text"
+                        value={editingNickname}
+                        onChange={(e) => setEditingNickname(e.target.value)}
+                        maxLength="20"
+                      />
+                    ) : (
+                      <strong>{post.nickname}</strong>
+                    )}
                     <span>{getPostDate(post.createdAt)}</span>
                   </div>
 
                   {isEditing ? (
-                    <textarea
-                      className={styles.editInput}
-                      value={editingMessage}
-                      onChange={(e) => setEditingMessage(e.target.value)}
-                      maxLength="500"
-                    />
+                    <div className={styles.editFields}>
+                      <textarea
+                        className={styles.editInput}
+                        value={editingMessage}
+                        onChange={(e) => setEditingMessage(e.target.value)}
+                        maxLength="500"
+                      />
+                      <div className={styles.editCharacterGrid}>
+                        {CHARACTERS.map((character) => (
+                          <button
+                            key={character.id}
+                            type="button"
+                            title={character.label}
+                            className={editingCharacter === character.id ? styles.selectedCharacter : ''}
+                            onClick={() => setEditingCharacter(character.id)}
+                          >
+                            <CharacterAvatar character={character.id} />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   ) : (
                     <p className={styles.message}>{post.message}</p>
                   )}
 
-                  {post.character && <CharacterAvatar character={post.character} />}
+                  {(isEditing ? editingCharacter : post.character) && (
+                    <div className={styles.postAvatar}>
+                      <CharacterAvatar character={isEditing ? editingCharacter : post.character} />
+                    </div>
+                  )}
 
                   {isOwner && (
                     <div className={styles.postButtons}>
                       {isEditing ? (
                         <>
                           <button type="button" onClick={() => updatePostFunction(post.id)}>저장</button>
-                          <button type="button" onClick={() => setEditingId('')}>취소</button>
+                          <button type="button" onClick={cancelEditFunction}>취소</button>
                         </>
                       ) : (
                         <>
