@@ -1,0 +1,46 @@
+Firebase + Zustand 연동 변경 내용
+=================================
+
+1. Firebase 초기 설정
+- src/firebase.js 생성
+- .env의 VITE_FIREBASE_* 환경변수로 Firebase 앱 초기화
+- Firebase Authentication과 Cloud Firestore 연결
+
+2. Zustand 로그인 상태 관리
+- src/store/authStore.js 생성
+- onAuthStateChanged로 로그인 사용자와 인증 확인 상태 관리
+- App.jsx에서 앱 시작 시 인증 상태 구독
+
+3. 회원가입 / 로그인 / 로그아웃
+- Signup.jsx: 이메일/비밀번호 계정 생성 및 닉네임 저장
+- Login.jsx: 이메일/비밀번호 로그인
+- Header.jsx: 로그인 상태에 따라 로그인/회원가입 또는 닉네임/로그아웃 표시
+- 기존 인증 페이지 UI와 캐릭터 이미지는 유지
+
+4. Firebase 방명록
+- Firestore 컬렉션 이름: guestbookPosts
+- 저장 필드: userId, nickname, message, character, createdAt, updatedAt
+- onSnapshot으로 최신 글 실시간 조회
+- 로그인 사용자만 글 작성 가능
+- 비회원은 글 목록 읽기만 가능
+- 작성자 본인에게만 수정/삭제 버튼 표시
+- 작성자 본인만 Firestore 글 수정/삭제 요청 가능
+- 기존 이모티콘 추가와 캐릭터 선택/미리보기 유지
+
+5. 보안 규칙
+- firestore.rules에 전체 규칙 작성
+- 모든 사용자에게 guestbookPosts 읽기 허용
+- 로그인 사용자만 자신의 uid로 작성 허용
+- 작성자 본인만 메시지 수정과 글 삭제 허용
+- 글자 수와 필드 자료형 검사
+- guestbookPosts 이외의 모든 Firestore 접근 차단
+
+6. Firebase 콘솔에서 필요한 설정
+- Authentication > Sign-in method에서 이메일/비밀번호 사용 설정
+- Firestore Database 생성
+- 프로젝트 루트에서 firebase deploy --only firestore:rules 실행하여 규칙 배포
+
+주의
+- .env 변경 후에는 개발 서버를 다시 실행해야 합니다.
+- .env 파일은 Git 저장소에 올리지 않는 것을 권장합니다.
+- .gitignore에 .env를 추가하여 Firebase 설정값이 커밋되지 않게 했습니다.

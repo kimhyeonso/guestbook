@@ -1,0 +1,64 @@
+.home {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    .slide {
+        width: 100%;
+        height: 100%;
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .copy{
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        color: white;
+
+        h1 {
+            font-size: 50px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+
+    .dots {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+
+        button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transition: all 0.5s;
+
+            &:hover{
+                background-color: #ddd;
+            }
+
+            &.activeDot {
+                width: 25px;
+                border-radius: 15px;
+            }
+        }
+
+        .activeDot {
+            background: #fff;
+        }
+    }
+}
+

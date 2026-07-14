@@ -1,0 +1,268 @@
+@use '../mixin' as m;
+
+.header {
+  width: 100%;
+  height: 150px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-top: 24px;
+  overflow: visible;
+
+  .headerContainer {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    z-index: 5;
+
+    display: grid;
+    grid-template-columns: 1fr minmax(620px, 850px) 1fr;
+    align-items: flex-start;
+
+    padding: 0 50px;
+  }
+
+  .logo {
+    position: relative;
+    z-index: 10;
+
+    justify-self: start;
+    align-self: flex-start;
+
+    margin-top: 4px;
+
+    animation: logoFloating 4s ease-in-out infinite;
+
+    img {
+      width: 200px;
+      display: block;
+
+      filter: drop-shadow(0 5px 0 rgba(255, 255, 255, 0.75));
+    }
+  }
+
+  /* 가운데 떠 있는 메뉴판 */
+  .menuBoard {
+    width: 100%;
+    height: 104px;
+
+    position: relative;
+    z-index: 8;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 48px;
+
+    background: #fffaf0;
+
+    border: 1.5px solid #b77d43;
+    border-radius: 52px 52px 20px 20px;
+
+    box-shadow:
+      0 8px 0 #e7c28d,
+      0 15px 25px rgba(101, 68, 35, 0.15);
+
+    animation: menuFloating 3.5s ease-in-out infinite;
+  }
+
+  .nav,
+  .auth {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+
+    @include m.fontR;
+  }
+
+  .menuLink {
+    min-width: 96px;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    color: #4c3422;
+    font-size: 19px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+      transform 0.25s ease,
+      color 0.25s ease;
+
+    &:hover {
+      color: #a86724;
+      transform: translateY(-5px) rotate(-1deg);
+
+      .menuIcon {
+        transform: rotate(-10deg) scale(1.15);
+      }
+    }
+  }
+
+  .menuIcon {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+  }
+
+  // 로그인한 사용자의 닉네임입니다.
+  .userName {
+    color: #4c3422;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* 현재 페이지 표시 */
+  .active {
+    color: #a86724;
+
+    &::after {
+      content: '';
+
+      width: 72%;
+      height: 5px;
+
+      position: absolute;
+      left: 50%;
+      bottom: -16px;
+
+      transform: translateX(-50%) rotate(-1deg);
+
+      background: #e2b33f;
+      border-radius: 50% 35% 55% 40%;
+
+      box-shadow: 0 2px 0 rgba(122, 75, 36, 0.2);
+    }
+  }
+}
+
+/* 메뉴판 둥실둥실 */
+@keyframes menuFloating {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(0.25deg);
+  }
+}
+
+/* 로고도 살짝 움직임 */
+@keyframes logoFloating {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    .headerContainer {
+      grid-template-columns: 180px minmax(560px, 760px) 180px;
+      padding: 0 30px;
+    }
+
+    .logo img {
+      width: 175px;
+    }
+
+    .menuBoard {
+      padding: 0 30px;
+    }
+
+    .nav,
+    .auth {
+      gap: 22px;
+    }
+
+    .menuLink {
+      min-width: 82px;
+      font-size: 16px;
+    }
+
+    .menuIcon {
+      width: 33px;
+      height: 33px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 150px;
+    padding-top: 68px;
+
+    .headerContainer {
+      display: block;
+      padding: 0 14px;
+    }
+
+    .logo {
+      position: absolute;
+      top: -60px;
+      left: 18px;
+
+      img {
+        width: 135px;
+      }
+    }
+
+    .menuBoard {
+      width: 100%;
+      height: 72px;
+
+      padding: 0 10px;
+
+      border-radius: 34px 34px 15px 15px;
+    }
+
+    .nav,
+    .auth {
+      gap: 4px;
+    }
+
+    .menuLink {
+      min-width: 67px;
+
+      flex-direction: column;
+      gap: 2px;
+
+      font-size: 11px;
+    }
+
+    .menuIcon {
+      width: 27px;
+      height: 27px;
+    }
+
+    .active::after {
+      height: 3px;
+      bottom: -9px;
+    }
+  }
+}

@@ -1,0 +1,250 @@
+@use '../mixin' as m;
+
+.panel {
+  min-width: 0;
+  min-height: 690px;
+  position: relative;
+  padding: 58px 28px 30px;
+  background: rgba(255, 253, 245, 0.96);
+  border: 2px solid #a85d2d;
+  border-radius: 18px 18px 8px 8px;
+  box-shadow: 0 7px 16px rgba(118, 73, 30, 0.09);
+}
+
+.panelTitle {
+  width: calc(100% - 54px);
+  min-height: 58px;
+  position: absolute;
+  top: -31px;
+  left: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 18px;
+  color: #2f2925;
+  font-size: clamp(18px, 1.5vw, 25px);
+  text-align: center;
+  border: 2px solid #8e4a27;
+  border-radius: 12px;
+  box-shadow: 0 5px 0 rgba(118, 73, 30, 0.2);
+}
+
+.pinkTitle { background: #f691a8; }
+.blueTitle { background: #91caf0; }
+
+.formContent,
+.characterContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.formContent { gap: 23px; }
+
+.formGroup strong,
+.field strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.emojiList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  button {
+    font-size: 25px;
+    transition: transform 0.15s ease;
+
+    &:hover { transform: translateY(-3px) scale(1.1); }
+  }
+}
+
+.field {
+  display: block;
+
+  input,
+  textarea {
+    width: 100%;
+    color: #4b4038;
+    background: #fffdf8;
+    border: 2px solid #e5d1af;
+    border-radius: 11px;
+    outline: 0;
+
+    &:focus { border-color: #ef8ba1; }
+  }
+
+  input { height: 52px; padding: 0 14px; }
+}
+
+.textareaBox {
+  position: relative;
+
+  textarea {
+    min-height: 155px;
+    padding: 14px 14px 35px;
+    resize: vertical;
+  }
+
+  span {
+    position: absolute;
+    right: 13px;
+    bottom: 11px;
+    color: #837a71;
+    font-size: 12px;
+  }
+}
+
+.submitButton {
+  width: 235px;
+  height: 58px;
+  margin: auto auto 0;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 700;
+  background: #ee4055;
+  border: 2px solid #c72d40;
+  border-radius: 16px;
+  box-shadow: 0 4px 0 #c72d40;
+
+  &:hover { background: #f25568; }
+  &:disabled { opacity: 0.65; cursor: default; }
+}
+
+.errorMessage {
+  margin-top: 9px;
+  color: #c72d40;
+  font-size: 13px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.characterContent > p {
+  margin: 12px 0 26px;
+  font-size: 20px;
+}
+
+.characterGrid {
+  min-height: 0;
+  max-height: 560px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 14px;
+  padding: 4px 6px 8px 2px;
+  overflow-y: auto;
+
+  // 캐릭터를 추가하면 아래로 쌓이고 상자 안에서 스크롤됩니다.
+  scrollbar-width: thin;
+  scrollbar-color: #82bde4 #eaf6fd;
+
+  &::-webkit-scrollbar { width: 7px; }
+  &::-webkit-scrollbar-track { background: #eaf6fd; border-radius: 10px; }
+  &::-webkit-scrollbar-thumb { background: #82bde4; border-radius: 10px; }
+
+  button {
+    min-width: 0;
+    padding: 6px;
+    border: 3px solid transparent;
+    border-radius: 17px;
+    transition: transform 0.18s ease, border-color 0.18s ease;
+
+    &:hover { transform: translateY(-4px); }
+
+    > div {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: #e8f3df;
+      border: 2px solid #b8d7a5;
+      border-radius: 16px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    span {
+      display: block;
+      margin-top: 7px;
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .selected {
+    background: #fff1a7;
+    border-color: #f06b82;
+    transform: translateY(-4px);
+  }
+}
+
+// PC 화면 높이에 맞춰 두 입력 영역이 페이지 밖으로 넘치지 않게 합니다.
+@media (min-width: 1151px) {
+  .panel {
+    min-height: 0;
+    height: 100%;
+    padding-top: 48px;
+    padding-bottom: 20px;
+  }
+
+  .formContent { gap: clamp(10px, 1.7vh, 23px); }
+
+  .emojiList button { font-size: clamp(19px, 2.4vh, 25px); }
+
+  .field input { height: clamp(40px, 5.2vh, 52px); }
+
+  .textareaBox textarea {
+    min-height: 100px;
+    height: clamp(100px, 15vh, 155px);
+  }
+
+  .submitButton {
+    height: clamp(46px, 6vh, 58px);
+    font-size: 19px;
+  }
+
+  .characterContent > p { margin: 5px 0 clamp(8px, 1.7vh, 20px); }
+
+  .characterGrid {
+    flex: 1;
+    max-height: none;
+    height: calc(100% - 45px);
+    grid-template-rows: none;
+    grid-auto-rows: clamp(180px, 15vh, 150px);
+    align-content: start;
+    gap: clamp(5px, 1vh, 14px) 12px;
+
+    button {
+      height: 100%;
+      padding: 3px;
+
+      > div {
+        height: calc(100% - 25px);
+        aspect-ratio: auto;
+      }
+
+      span {
+        margin-top: 3px;
+        font-size: clamp(11px, 1.5vh, 14px);
+      }
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .writePanel,
+  .characterPanel { min-height: 650px; }
+}
+
+@media (max-width: 760px) {
+  .panel { min-height: auto; padding: 55px 20px 28px; }
+  .writePanel { min-height: 620px; }
+  .characterGrid { gap: 14px 10px; }
+}
