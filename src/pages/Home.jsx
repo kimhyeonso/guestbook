@@ -20,7 +20,7 @@ const Home = () => {
           return idx + 1
         }
       })
-    }, 50000)
+    }, 380000)
 
     return ()=> {
       clearInterval(timer)
