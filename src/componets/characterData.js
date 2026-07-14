@@ -24,6 +24,17 @@ const CHARACTERS = [
 
 { id: '12', label: '오수', src: '/character/character-12.png' },
 
+{ id: '13', label: '수지', src: '/character/character-13.png' },
+
+{ id: '14', label: '봉미선', src: '/character/character-14.png' },
+
+{ id: '15', label: '신형만', src: '/character/character-15.png' },
+
+{ id: '17', label: '원장 선생님', src: '/character/character-16.png' },
+
+{ id: '18', label: '닭살 커플', src: '/character/character-17.png' },
+
+
 ]
 
 export default CHARACTERS
