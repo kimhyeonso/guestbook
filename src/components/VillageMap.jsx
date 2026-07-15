@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './VillageMap.module.scss'
-import villageMapImage from '../assets/map/VillageMap.png'
+import villageMapImage from '../assets/map/villageMap.png'
 
 const VillageMap = ({
   places,
