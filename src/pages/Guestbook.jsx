@@ -11,9 +11,9 @@ import {
   serverTimestamp,
   updateDoc
 } from 'firebase/firestore'
-import GuestbookForm from '../componets/GuestbookForm'
-import CharacterAvatar from '../componets/CharacterAvatar'
-import CHARACTERS from '../componets/characterData'
+import GuestbookForm from '../components/GuestbookForm'
+import CharacterAvatar from '../components/CharacterAvatar'
+import CHARACTERS from '../components/characterData'
 import useAuthStore from '../store/authStore'
 import { auth, db } from '../firebase'
 import styles from './Guestbook.module.scss'

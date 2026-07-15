@@ -30,10 +30,19 @@ const CHARACTERS = [
 
 { id: '15', label: '신형만', src: '/character/character-15.png' },
 
-{ id: '17', label: '원장 선생님 (권지옹)', src: '/character/character-16.png' },
+{ id: '16', label: '원장 선생님 (권지옹)', src: '/character/character-16.png' },
 
-{ id: '18', label: '정훈과 민희', src: '/character/character-17.png' },
+{ id: '17', label: '정훈과 민희', src: '/character/character-17.png' },
 
+{ id: '18', label: '옆집 아줌마', src: '/character/character-18.png' },
+
+{ id: '19', label: '나미리', src: '/character/character-19.png' },
+
+{ id: '20', label: '채성화', src: '/character/character-20.png' },
+
+{ id: '21', label: '차은주', src: '/character/character-21.png' },
+
+{ id: '22', label: '흑곰', src: '/character/character-22.png' },
 
 ]
 

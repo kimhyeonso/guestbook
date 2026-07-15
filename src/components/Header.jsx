@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import Story from '../pages/Story'
+import Map from '../pages/Map'
+import useAuthStore from '../store/authStore'
 import styles from './Header.module.scss'
 import logo from '../assets/logo.svg'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase'
-import useAuthStore from '../store/authStore'
 import home from '../assets/home.png'
 import guestbook from '../assets/guestbook.png'
 import house from '../assets/house.png'
+import storypage from '../assets/storypage.png'
 
 // public 폴더에 이미지를 넣고 아래 경로만 바꾸면 됩니다.
 const HEADER_IMAGES = {
@@ -49,6 +52,16 @@ const Header = () => {
             <NavLink to="/home" className={getNavClass}>
               <img className={styles.menuIcon} src={home} alt="HOME" />
               <span>홈</span>
+            </NavLink>
+
+            <NavLink to="/map" className={getNavClass}>
+              <img className={styles.menuIcon} src={storypage} alt="MAP" />
+              <span>떡잎마을 탐방</span>
+            </NavLink>
+
+            <NavLink to="/story" className={getNavClass}>
+              <img className={styles.menuIcon} src={storypage} alt="STORY" />
+              <span>오늘의 운세</span>
             </NavLink>
 
             <NavLink to="/guestbook" className={getNavClass}>

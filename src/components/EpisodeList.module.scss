@@ -1,0 +1,141 @@
+.episodeSection {
+  padding: 18px;
+  border: 2px solid #e5d1af;
+  border-radius: 14px;
+  background: #fff6ee;
+}
+
+.episodeTitle {
+  display: flex;
+  margin-bottom: 14px;
+  align-items: center;
+  gap: 15px;
+
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h3 {
+    color: #2f2925;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  p {
+    color: #8e7b70;
+    font-size: 13px;
+  }
+}
+
+.episodeList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.episodeCard {
+  padding: 8px;
+  border: 2px solid #e5d1af;
+  border-radius: 12px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+
+  strong {
+    display: block;
+    margin: 8px 3px 4px;
+    color: #4f3a31;
+  }
+
+  p {
+    margin: 0 3px 5px;
+    color: #806e64;
+    font-size: 12px;
+  }
+}
+
+.thumbnail {
+  position: relative;
+  height: 120px;
+  border-radius: 9px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 34px;
+  border: 2px solid #c72d40;
+  border-radius: 10px;
+  background: #ee4055;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 34px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1001px) {
+  .episodeSection {
+    min-height: 0;
+    padding: 12px;
+    flex: 1;
+  }
+
+  .episodeTitle {
+    margin-bottom: 8px;
+
+    h3 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 11px;
+    }
+  }
+
+  .episodeList {
+    gap: 8px;
+  }
+
+  .episodeCard {
+    padding: 6px;
+
+    strong {
+      margin-top: 5px;
+      font-size: 13px;
+    }
+
+    p {
+      font-size: 11px;
+    }
+  }
+
+  .thumbnail {
+    height: clamp(75px, 11vh, 105px);
+  }
+}
+
+@media (max-width: 600px) {
+  .episodeTitle {
+    display: block;
+
+    p {
+      margin-top: 5px;
+    }
+  }
+
+  .episodeList {
+    grid-template-columns: 1fr;
+  }
+}

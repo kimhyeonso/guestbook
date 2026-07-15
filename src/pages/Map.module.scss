@@ -1,0 +1,45 @@
+@use '../mixin' as m;
+
+.mapPage {
+  min-height: 100vh;
+  padding: 140px 20px 50px;
+  background: #fff9e8;
+}
+
+.mapInner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  width: min(1800px, 100%);
+  margin: 0 auto;
+  border: 2px solid #a85d2d;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  @include m.fontR;
+}
+
+@media (min-width: 1001px) {
+  .mapPage {
+    height: 100vh;
+    min-height: 720px;
+    padding: 125px 20px 20px;
+    overflow: hidden;
+  }
+
+  .mapInner {
+    height: calc(100vh - 145px);
+    min-height: 575px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .mapInner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .mapPage {
+    padding: 120px 10px 30px;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import CharacterAvatar from './CharacterAvatar'
 import CHARACTERS from './characterData'
-import styles from './GuestbookForm.module.scss'
+import styles from './GuestbookForm.module.scss' 
 
 const EMOJIS = ['😀', '😊', '🥰', '😂', '😮', '😢', '😭', '😴', '🤔', '😎', '🥳']
 

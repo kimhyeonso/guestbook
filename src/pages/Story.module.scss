@@ -1,0 +1,277 @@
+@use '../mixin' as m;
+
+.storyPage {
+  position: relative;
+  height: 100vh;
+  padding: 165px 4% 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(255, 226, 103, 0.35) 0,
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(255, 186, 193, 0.3) 0,
+      transparent 22%
+    ),
+    linear-gradient(180deg, #fffceb 0%, #fff8d2 70%, #dded9b 100%);
+
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: 0;
+    font-size: 80px;
+    opacity: 0.16;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: '☆';
+    top: 180px;
+    left: 3%;
+    transform: rotate(-15deg);
+    color: #ffad33;
+  }
+
+  &::after {
+    content: '✎';
+    right: 2%;
+    bottom: 120px;
+    transform: rotate(18deg);
+    color: #f36b82;
+  }
+}
+
+.storyInner {
+  @include m.fontR;
+  position: relative;
+  z-index: 1;
+  width: min(1440px, 100%);
+  margin: 0 auto;
+}
+
+.storyHero {
+  display: flex;
+  width: min(760px, 100%);
+  margin: 0 auto 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+
+  > img {
+    width: 120px;
+    height: 100px;
+    object-fit: contain;
+    transform-origin: center bottom;
+    animation: heroWiggle 1.4s ease-in-out infinite;
+
+    &:last-child {
+      animation-delay: 0.25s;
+    }
+  }
+
+  h2 {
+    margin: 0 0 8px;
+    color: #2f2925;
+    font-size: clamp(30px, 1.5vw, 50px);
+    font-weight: 700;
+    line-height: 1.1;
+
+    span {
+      color: #f0445e;
+    }
+  }
+}
+
+@keyframes heroWiggle {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+.heroCharacters {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  .shinchan {
+    position: absolute;
+    width: 150px;
+    left: -100px;
+    bottom: -10px;
+    object-fit: contain;
+  }
+
+  .shiro {
+    position: absolute;
+    width: 130px;
+    right: -90px;
+    bottom: 0;
+    object-fit: contain;
+  }
+}
+
+.storyContent {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.85fr) minmax(480px, 1.45fr);
+  gap: 28px;
+  align-items: stretch;
+  height: clamp(480px, calc(100vh - 350px), 680px);
+}
+
+.backgroundDoodle {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+
+  &.starOne {
+    top: 30%;
+    left: 1%;
+    color: #ffaf27;
+    font-size: 45px;
+    transform: rotate(-20deg);
+  }
+
+  &.starTwo {
+    top: 24%;
+    right: 5%;
+    color: #ff8296;
+    font-size: 56px;
+    transform: rotate(17deg);
+  }
+
+  &.crayonOne {
+    left: 2%;
+    bottom: 70px;
+    font-size: 60px;
+    transform: rotate(-30deg);
+  }
+
+  &.crayonTwo {
+    right: 2%;
+    bottom: 110px;
+    font-size: 60px;
+    transform: rotate(26deg);
+  }
+}
+
+.groundDecoration {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 76px;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(69, 128, 47, 0.18) 0 8%,
+      transparent 9%
+    )
+    0 0 / 90px 40px,
+    linear-gradient(180deg, transparent 0%, rgba(145, 188, 67, 0.2) 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+  .storyPage {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 125px;
+    padding-bottom: 50px;
+    overflow: visible;
+  }
+
+  .storyContent {
+    grid-template-columns: 1fr;
+    max-width: 850px;
+    height: auto;
+    margin: 0 auto;
+    gap: 55px;
+  }
+
+  .heroCharacters {
+    .shinchan {
+      left: -20px;
+      width: 120px;
+    }
+
+    .shiro {
+      right: -10px;
+      width: 105px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .storyPage {
+    padding: 105px 18px 50px;
+  }
+
+  .storyHero {
+    margin-bottom: 28px;
+
+    > img {
+      width: 85px;
+      height: 80px;
+    }
+
+    h2 {
+      font-size: 25px;
+    }
+
+    p {
+      padding: 0 35px;
+      font-size: 0.95rem;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  .heroCharacters {
+    display: none;
+  }
+
+  .storyContent {
+    gap: 55px;
+  }
+
+  .backgroundDoodle {
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .storyPage {
+    padding-inline: 12px;
+  }
+
+  .storyHero {
+    gap: 8px;
+
+    > img {
+      width: 58px;
+      height: 60px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      padding: 0;
+      font-size: 0.88rem;
+    }
+  }
+}

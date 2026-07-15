@@ -4,8 +4,10 @@ import { Routes, Route } from 'react-router-dom'
 import Guestbook from './pages/Guestbook'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import Header from './componets/Header'
+import Header from './components/Header'
 import useAuthStore from './store/authStore'
+import Story from './pages/Story'
+import Map from './pages/Map'
 
 const App = () => {
   const startAuthListener = useAuthStore((state) => state.startAuthListener)
@@ -22,6 +24,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/map' element={<Map />} />
+        <Route path='/story' element={<Story />} />
         <Route path='/guestbook' element={<Guestbook />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
@@ -40,7 +44,7 @@ export default App
   src
   |- main.jsx(browserRouter 생성)
   |- App.jsx(Router, Route)
-  |- componets
+  |- components
     |- Header.jsx(Link, NavLink)
     |- Header.module.scss
     |- CharacterAvatar.jsx (캐릭터 관리)
