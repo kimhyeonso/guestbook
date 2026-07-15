@@ -2,11 +2,13 @@ import React, {useState} from 'react'
 import FortuneForm from '../components/FortuneForm'
 import FortuneResult from '../components/FortuneResult'
 import styles from './Story.module.scss'
+import useAuthStore from '../store/authStore'
 
 import choco from '../assets/choco.png'
 
 const Story = () => {
   const [fortuneResult, setFortuneResult] = useState(null)
+  const user = useAuthStore((state) => state.user)
 
   return (
     <main className={styles.storyPage}>
@@ -24,7 +26,10 @@ const Story = () => {
         </section>
 
         <section className={styles.storyContent}>
-          <FortuneForm onResult={setFortuneResult} />
+          <FortuneForm
+            onResult={setFortuneResult}
+            initialNickname={user?.displayName || ''}
+          />
 
           <FortuneResult result={fortuneResult} />
         </section>
@@ -34,4 +39,3 @@ const Story = () => {
 }
 
 export default Story
-

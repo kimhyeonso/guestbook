@@ -87,8 +87,10 @@
 
 @media (min-width: 1001px) {
   .episodeSection {
+    display: flex;
     min-height: 0;
     padding: 12px;
+    flex-direction: column;
     flex: 1;
   }
 
@@ -105,11 +107,16 @@
   }
 
   .episodeList {
+    min-height: 0;
     gap: 8px;
+    flex: 1;
   }
 
   .episodeCard {
+    display: flex;
+    min-height: 0;
     padding: 6px;
+    flex-direction: column;
 
     strong {
       margin-top: 5px;
@@ -122,7 +129,9 @@
   }
 
   .thumbnail {
-    height: clamp(75px, 11vh, 105px);
+    height: auto;
+    min-height: 105px;
+    flex: 1;
   }
 }
 

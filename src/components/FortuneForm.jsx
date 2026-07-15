@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { fortuneData } from './fortuneData'
 import styles from './FortuneForm.module.scss'
 
@@ -10,12 +10,16 @@ const moods = [
     { id: 'bad', emoji: '😭', label: '안 좋아' }
 ]
 
-const FortuneForm = ({onResult}) => {
-    const [nickname, setNickname] = useState('')
+const FortuneForm = ({onResult, initialNickname = ''}) => {
+    const [nickname, setNickname] = useState(initialNickname)
     const [birthYear, setBirthYear] = useState('')
     const [birthMonth, setBirthMonth] = useState('')
     const [birthDay, setBirthDay] = useState('')
     const [mood, setMood] = useState('')
+
+    useEffect(() => {
+        setNickname(initialNickname)
+    }, [initialNickname])
 
     const submitFortune = (e) => {
         e.preventDefault()
