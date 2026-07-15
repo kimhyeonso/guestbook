@@ -287,8 +287,8 @@
   .postList { max-height: 430px; }
 }
 
-@media (max-width: 760px) {
-  .guestbook { padding: 185px 14px 55px; }
+@media (max-width: 768px) {
+  .guestbook { padding: 285px 14px 55px; }
   .card { margin-bottom: 58px; }
   .contentGrid { grid-template-columns: 1fr; gap: 48px; }
   .recordsPanel { grid-column: auto; min-height: 500px; padding: 55px 18px 25px; }
