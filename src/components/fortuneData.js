@@ -9,6 +9,27 @@ import fortuneresult08 from '/fortune/fortuneresult-08.png'
 import fortuneresult09 from '/fortune/fortuneresult-09.png'
 import fortuneresult10 from '/fortune/fortuneresult-10.png'
 import fortuneresult11 from '/fortune/fortuneresult-11.png'
+import fortuneresult12 from '/fortune/fortuneresult-12.png'
+
+import fortuneresult14 from '/fortune/fortuneresult-14.png'
+import fortuneresult15 from '/fortune/fortuneresult-15.png'
+import fortuneresult16 from '/fortune/fortuneresult-16.png'
+import fortuneresult17 from '/fortune/fortuneresult-17.png'
+import fortuneresult18 from '/fortune/fortuneresult-18.png'
+// import fortuneresult19 from '/fortune/fortuneresult-19.png'
+// import fortuneresult20 from '/fortune/fortuneresult-20.png'
+import fortuneresult21 from '/fortune/fortuneresult-21.png'
+import fortuneresult22 from '/fortune/fortuneresult-22.png'
+import fortuneresult23 from '/fortune/fortuneresult-23.png'
+import fortuneresult24 from '/fortune/fortuneresult-24.png'
+
+import fortuneresult26 from '/fortune/fortuneresult-26.png'
+import fortuneresult30 from '/fortune/fortuneresult-30.png'
+import fortuneresult31 from '/fortune/fortuneresult-31.png'
+import fortuneresult32 from '/fortune/fortuneresult-32.png'
+import fortuneresult36 from '/fortune/fortuneresult-36.png'
+import fortuneresult40 from '/fortune/fortuneresult-40.png'
+import fortuneresult29 from '/fortune/fortuneresult-29.png'
 
 
 
@@ -131,7 +152,7 @@ export const fortuneData = [
     item: '칭찬 스티커',
     color: '노란색',
     score: 87,
-    image: fortuneresult04
+    image: fortuneresult12
   },
   {
     id: 13,
@@ -151,7 +172,7 @@ export const fortuneData = [
     item: '푹신한 베개',
     color: '민트색',
     score: 73,
-    image: fortuneresult11
+    image: fortuneresult14
   },
   {
     id: 15,
@@ -161,7 +182,7 @@ export const fortuneData = [
     item: '운동화',
     color: '흰색',
     score: 86,
-    image: fortuneresult08
+    image: fortuneresult15
   },
   {
     id: 16,
@@ -171,7 +192,7 @@ export const fortuneData = [
     item: '우산',
     color: '파란색',
     score: 77,
-    image: fortuneresult03
+    image: fortuneresult16
   },
   {
     id: 17,
@@ -181,7 +202,7 @@ export const fortuneData = [
     item: '빨간 망토',
     color: '빨간색',
     score: 94,
-    image: fortuneresult03
+    image: fortuneresult17
   },
   {
     id: 18,
@@ -191,7 +212,7 @@ export const fortuneData = [
     item: '선글라스',
     color: '검은색',
     score: 82,
-    image: fortuneresult09
+    image: fortuneresult18
   },
   {
     id: 19,
@@ -221,7 +242,7 @@ export const fortuneData = [
     item: '카메라',
     color: '주황색',
     score: 80,
-    image: fortuneresult11
+    image: fortuneresult21
   },
   {
     id: 22,
@@ -231,7 +252,7 @@ export const fortuneData = [
     item: '선물 상자',
     color: '노란색',
     score: 90,
-    image: fortuneresult07
+    image: fortuneresult22
   },
   {
     id: 23,
@@ -241,7 +262,7 @@ export const fortuneData = [
     item: '풍선',
     color: '분홍색',
     score: 89,
-    image: fortuneresult09
+    image: fortuneresult23
   },
   {
     id: 24,
@@ -251,7 +272,7 @@ export const fortuneData = [
     item: '동전 지갑',
     color: '금색',
     score: 83,
-    image: fortuneresult07
+    image: fortuneresult24
   },
   {
     id: 25,
@@ -271,7 +292,7 @@ export const fortuneData = [
     item: '네잎클로버',
     color: '초록색',
     score: 91,
-    image: fortuneresult01
+    image: fortuneresult26
   },
   {
     id: 27,
@@ -301,7 +322,7 @@ export const fortuneData = [
     item: '토끼 인형',
     color: '보라색',
     score: 81,
-    image: fortuneresult08
+    image: fortuneresult29
   },
   {
     id: 30,
@@ -311,7 +332,7 @@ export const fortuneData = [
     item: '포근한 담요',
     color: '베이지색',
     score: 74,
-    image: fortuneresult11
+    image: fortuneresult30
   },
   {
     id: 31,
@@ -321,7 +342,7 @@ export const fortuneData = [
     item: '무지개 스티커',
     color: '무지개색',
     score: 93,
-    image: fortuneresult04
+    image: fortuneresult31
   },
   {
     id: 32,
@@ -331,7 +352,7 @@ export const fortuneData = [
     item: '장난감',
     color: '분홍색',
     score: 86,
-    image: fortuneresult09
+    image: fortuneresult32
   },
   {
     id: 33,
@@ -371,7 +392,7 @@ export const fortuneData = [
     item: '히어로 배지',
     color: '파란색',
     score: 97,
-    image: fortuneresult03
+    image: fortuneresult36
   },
   {
     id: 37,
@@ -411,6 +432,6 @@ export const fortuneData = [
     item: '환한 미소',
     color: '노란색',
     score: 90,
-    image: fortuneresult03
+    image: fortuneresult40
   }
 ]
