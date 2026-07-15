@@ -119,7 +119,7 @@ export const mapData = [
         title: '흰둥이와 함께 놀아요',
         description: '짱구와 흰둥이의 즐거운 하루',
         thumbnail: episodeHouse01,
-        youtubeUrl: 'https://www.youtube.com/watch?v=영상ID'
+        youtubeUrl: 'https://www.youtube.com/watch?v=EJJK6JSW6Zs'
       }
     ]
   },
@@ -172,17 +172,17 @@ export const mapData = [
     episodes: [
         {
         id: 1,
-        title: '짱구는 집을 지켜요',
-        description: '짱구가 혼자 집을 지키며 벌어지는 이야기',
+        title: '사람들이 잘 모르는 철수, 짱구가 둘도 없는 친구가 된 이유',
+        description: '사람들이 잘 모르는 철수, 짱구가 둘도 없는 친구가 된 이유',
         thumbnail: episodeHouse01,
-        youtubeUrl: 'https://www.youtube.com/watch?v=영상ID'
+        youtubeUrl: 'https://www.youtube.com/watch?v=GufdpiBN0Xw'
       },
       {
-        id: 1,
-        title: '짱구는 집을 지켜요',
-        description: '짱구가 혼자 집을 지키며 벌어지는 이야기',
+        id: 2,
+        title: '짱구는 못말려 철수네 가족의 숨겨진 비밀',
+        description: '짱구는 못말려 철수네 가족의 숨겨진 비밀',
         thumbnail: episodeHouse01,
-        youtubeUrl: 'https://www.youtube.com/watch?v=영상ID'
+        youtubeUrl: 'https://www.youtube.com/watch?v=4vgMhaORiZg'
       }
     ]
   },
@@ -249,7 +249,7 @@ export const mapData = [
         youtubeUrl: 'https://youtu.be/afll6YMQ7N0?si=ZM0wMxL-9nfziGJC'
     },
     {
-        id: 1,
+        id: 2,
         title: '짱구는 집을 지켜요',
         description: '짱구가 혼자 집을 지키며 벌어지는 이야기',
         thumbnail: episodeHouse01,
@@ -324,7 +324,22 @@ export const mapData = [
         }
     ],
 
-    episodes:[]
+    episodes:[
+      {
+        id: 1,
+        title: '떡잎동물원',
+        description: '떡잎동물원',
+        thumbnail: episodeHouse01,
+        youtubeUrl: 'https://www.youtube.com/watch?v=6ce7bBu61gw'
+    },
+    {
+        id: 2,
+        title: '짱구 떡잎유치원의 소름 돋는 비밀',
+        description: '짱구 떡잎유치원의 소름 돋는 비밀 TOP30 짱구 몰아보기',
+        thumbnail: episodeHouse01,
+        youtubeUrl: 'https://www.youtube.com/watch?v=flD795pS_-s'
+    },
+    ]
 },
 
 {
@@ -382,7 +397,20 @@ export const mapData = [
     ],
 
     episodes:[
-
+      {
+        id: 1,
+        title: '와르르맨션 시즌 몰아보기',
+        description: '와르르맨션 시즌 몰아보기! 미방영부터 근황까지',
+        thumbnail: episodeHouse01,
+        youtubeUrl: 'https://www.youtube.com/watch?v=mww_jojq6jo'
+    },
+    {
+        id: 2,
+        title: '와르르맨션 소름돋는 비밀 TOP5',
+        description: '와르르맨션 소름돋는 비밀 TOP5',
+        thumbnail: episodeHouse01,
+        youtubeUrl: 'https://www.youtube.com/watch?v=12WI_0y5nSA'
+    },
     ]
 },
 
@@ -429,6 +457,20 @@ export const mapData = [
   ],
 
   episodes:[
+    {
+        id: 1,
+        title: '짱구 조연들의 소름 돋는 비밀 TOP30',
+        description: '짱구 조연들의 소름 돋는 비밀 TOP30',
+        thumbnail: episodeHouse01,
+        youtubeUrl: 'https://www.youtube.com/watch?v=6t8y9U3P8Kk&t=107s'
+    },
+    {
+        id: 2,
+        title: '짱구 인물소개 옆집아줌마편',
+        description: '짱구 인물소개 옆집아줌마편5',
+        thumbnail: episodeHouse01,
+        youtubeUrl: 'https://www.youtube.com/watch?v=3S_sxoA3nsA'
+    },
   ]
 },
 
@@ -483,6 +525,20 @@ export const mapData = [
   ],
 
   episodes:[
+    {
+        id: 1,
+        title: '훈이야',
+        description: '짱구가 훈이네 집 부르는 법',
+        thumbnail: episodeHouse01,
+        youtubeUrl: 'https://www.youtube.com/watch?v=HDlXZXJBFzA'
+      },
+      {
+        id: 2,
+        title: '짱구의 또다른 매력',
+        description: '짱구의 또다른 매력',
+        thumbnail: episodeHouse01,
+        youtubeUrl: 'https://www.youtube.com/watch?v=kBLXst8GfD8'
+      }
   ]
 }
 ]
